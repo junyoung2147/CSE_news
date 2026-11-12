@@ -1,7 +1,7 @@
 {
  "date": "2026-11-12",
  "title": "개발·AI 주간 소식 — 2026-11-12",
- "intro": "이번 주는 로봇·피지컬 AI 연구와 에이전트 학습 논문이 두드러졌고, Anthropic의 IPO 로드쇼와 OpenAI·DeepMind의 보안·검증 특화 AI 발표가 업계를 달궜다. 코딩 에이전트의 보안·데이터 이슈도 개발 커뮤니티의 관심사였다.",
+ "intro": "이번 주는 Anthropic의 IPO 로드쇼 시작과 OpenAI·DeepMind의 보안·검증 특화 AI 발표가 업계의 중심이었고, 연구에서는 로봇·피지컬 AI와 에이전트 학습 논문이 두드러졌다. 개발 커뮤니티에서는 코딩 에이전트의 개인정보·도입 문제가 화제였다.",
  "items": [
   {
    "category": "ai_research",
@@ -9,23 +9,17 @@
    "url": "https://arxiv.org/abs/2611.08449",
    "source": "hf_daily_papers",
    "also_seen_in": [],
-   "commentary": "로봇·자율주행 같은 피지컬 AI가 언어가 아니라 점·바운딩 박스 같은 시각적 계획(visual plan)으로 추론하도록 하는 방법을 제안한다. 언어 추론에 의존하지 않고도 계획을 빠르게 생성하려는 시도라 로보틱스 연구자에게 참고할 만하다."
+   "importance": 2,
+   "commentary": "로봇·자율주행 같은 피지컬 AI가 언어 대신 점·바운딩 박스 같은 시각적 계획(visual plan)으로 추론하도록 하는 빠른 디코딩 방식을 제안한다. 언어 추론 비용을 줄여 실시간성이 중요한 로봇 분야에 의미가 있다."
   },
   {
    "category": "ai_research",
-   "title": "Confucius4-R2T2: A Stable-Prefix Streaming ASR Model for Real Real-Time Transcription",
-   "url": "https://arxiv.org/abs/2611.06043",
+   "title": "Learning Heterogeneous Tactile Representation for General Dexterous Manipulation",
+   "url": "https://arxiv.org/abs/2611.12806",
    "source": "hf_daily_papers",
    "also_seen_in": [],
-   "commentary": "기계(번역기, 음성 에이전트)가 토큰을 받는 즉시 행동하는 환경을 겨냥한 스트리밍 음성 인식(ASR) 모델이다. 한번 출력한 토큰이 뒤늦게 바뀌지 않는 안정적인 접두(stable-prefix) 출력이 핵심이라 실시간 음성 에이전트 개발에 의미가 있다."
-  },
-  {
-   "category": "ai_research",
-   "title": "SLA: Scaling Spatial-Language-Action Model via Continual Pre-training",
-   "url": "https://arxiv.org/abs/2611.08373",
-   "source": "hf_daily_papers",
-   "also_seen_in": [],
-   "commentary": "비전-언어-행동(VLA) 모델이 의미 이해와 3차원 공간의 정밀 제어를 함께 갖추도록 하는 공간-언어-행동 모델이다. 지속 사전학습(continual pre-training)으로 확장하는 접근이라 로봇 조작 모델의 스케일링 방향을 가늠하는 데 도움이 된다."
+   "importance": 2,
+   "commentary": "접촉이 많은 정교한 조작(dexterous manipulation)을 위해 이종 촉각 센서의 표현을 통합 학습하는 연구다. 센서가 달라도 쓸 수 있는 범용 촉각 표현은 체화 지능(embodied intelligence) 연구의 기반이 된다."
   },
   {
    "category": "ai_research",
@@ -33,15 +27,17 @@
    "url": "https://arxiv.org/abs/2611.04277",
    "source": "hf_daily_papers",
    "also_seen_in": [],
-   "commentary": "에이전트 하니스(harness)의 변형들이 서로 다른 실패를 보완한다는 관찰에서 출발해, 형제 하니스로부터 배우며 일반화되는 에이전트 학습법을 제안한다. 에이전트 성능이 모델뿐 아니라 하니스 설계에도 달려 있음을 보여준다."
+   "importance": 2,
+   "commentary": "에이전트 하니스(harness)의 변형들이 서로 다른 실패를 보완한다는 관찰에 기반해, 형제 하니스에서 배워 일반화되는 에이전트 학습을 제안한다. 코딩·도구 사용 에이전트를 만드는 팀에 시사점이 있다."
   },
   {
    "category": "ai_research",
-   "title": "P^2-MOPD: Accelerating Multi-Teacher On-Policy Distillation via Parameter Priors",
-   "url": "https://arxiv.org/abs/2611.03953",
+   "title": "SLA: Scaling Spatial-Language-Action Model via Continual Pre-training",
+   "url": "https://arxiv.org/abs/2611.08373",
    "source": "hf_daily_papers",
    "also_seen_in": [],
-   "commentary": "여러 교사 모델의 능력을 학생 모델로 합치는 다중 교사 온폴리시 증류(on-policy distillation)를 파라미터 사전 정보로 가속하는 연구다. 전문가 모델을 하나로 통합하는 비용을 줄이려는 팀에게 의미가 있다."
+   "importance": 1,
+   "commentary": "비전-언어-행동(VLA) 모델에 3차원 공간 이해를 더하는 지속 사전학습(continual pre-training) 방식이다. 의미 이해와 정밀 제어를 함께 요구하는 로봇 조작 연구자가 참고할 만하다."
   },
   {
    "category": "ai_research",
@@ -49,7 +45,8 @@
    "url": "https://arxiv.org/abs/2611.06910",
    "source": "hf_daily_papers",
    "also_seen_in": [],
-   "commentary": "물리학 연구 전 과정에서 AI 에이전트를 평가하는 벤치마크로, 고정된 문제나 개별 과제만 보는 기존 방식의 한계를 짚는다. 과학 연구용 에이전트의 실제 역량을 가늠할 기준이 될 수 있다."
+   "importance": 1,
+   "commentary": "물리학 연구를 처음부터 끝까지 수행하는 AI 에이전트를 평가하는 벤치마크다. 고정된 문제나 하위 과제가 아닌 연구 전 과정을 본다는 점이 기존 벤치마크와 다르다."
   },
   {
    "category": "ai_research",
@@ -57,7 +54,17 @@
    "url": "https://arxiv.org/abs/2611.06918",
    "source": "hf_daily_papers",
    "also_seen_in": [],
-   "commentary": "VLA 모델이 시각 인코더로 지각을 먼저 압축한 뒤 행동을 추론하는 통상의 전제를 되짚고, 픽셀에서 행동으로 이어지는 네이티브 정책을 지향한다. 로봇 정책 구조 설계에 새로운 선택지를 제시한다."
+   "importance": 1,
+   "commentary": "VLA 모델이 시각 인코더로 먼저 압축한 뒤 행동을 추론하는 구조에서 벗어나 픽셀에서 행동까지 이어지는 네이티브 정책을 지향한다. 로봇 파운데이션 모델의 구조 변화를 가늠할 수 있다."
+  },
+  {
+   "category": "ai_research",
+   "title": "P^2-MOPD: Accelerating Multi-Teacher On-Policy Distillation via Parameter Priors",
+   "url": "https://arxiv.org/abs/2611.03953",
+   "source": "hf_daily_papers",
+   "also_seen_in": [],
+   "importance": 1,
+   "commentary": "여러 교사 모델의 능력을 학생 모델이 직접 생성한 궤적으로 합치는 다중 교사 온폴리시 증류(on-policy distillation)를 파라미터 사전 정보로 가속한다. 모델 통합 비용을 줄이려는 팀에 참고가 된다."
   },
   {
    "category": "ai_industry",
@@ -65,7 +72,8 @@
    "url": "https://anthropic.com/news/roadshow-launch",
    "source": "anthropic_news",
    "also_seen_in": [],
-   "commentary": "Anthropic이 Class A 보통주의 기업공개(IPO) 로드쇼를 시작했다. 주요 AI 연구소가 상장 절차에 들어갔다는 점에서 AI 업계 자금 조달과 경쟁 구도에 영향을 줄 사건이다."
+   "importance": 3,
+   "commentary": "Anthropic이 보통주(Class A) 기업공개(IPO) 로드쇼를 시작했다. 주요 AI 연구소가 상장 절차에 들어갔다는 점에서 AI 업계 자금 조달과 경쟁 구도에 큰 신호다."
   },
   {
    "category": "ai_industry",
@@ -75,7 +83,8 @@
    "also_seen_in": [
     "hacker_news"
    ],
-   "commentary": "OpenAI가 취약점을 찾고 수정안을 만드는 사이버보안 특화 모델 GPT-6 Cyber를 공개했다. 허가된 범위 안에서만 동작하도록 학습되었다고 밝혀, 방어용 보안 에이전트 도입을 검토하는 조직이 주목할 만하다. Hacker News에서도 화제가 됐다."
+   "importance": 3,
+   "commentary": "OpenAI가 취약점을 찾고 수정안을 만드는 사이버보안 특화 모델 GPT-6 Cyber를 공개했다. 허가된 범위 안에서만 동작하도록 학습됐다고 밝혀, 공격·방어 양면성이 있는 보안 AI의 정렬(alignment) 방향을 보여 준다."
   },
   {
    "category": "ai_industry",
@@ -85,7 +94,8 @@
    "also_seen_in": [
     "hacker_news"
    ],
-   "commentary": "DeepMind의 AlphaProof Code 에이전트가 Signal의 핵심 암호화를 검증하는 Lean 증명 300만 줄을 작성했다. 복잡한 소프트웨어를 깊이 있게 형식 검증하는 일을 AI가 맡을 수 있음을 보여주는 사례다."
+   "importance": 3,
+   "commentary": "DeepMind의 AlphaProof Code 에이전트가 Signal 핵심 암호화 코드를 검증하는 300만 줄 규모의 Lean 증명을 작성했다. 형식 검증(formal verification)을 대규모 실제 소프트웨어에 적용할 수 있음을 보여 주는 사례다."
   },
   {
    "category": "ai_industry",
@@ -93,15 +103,17 @@
    "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence",
    "source": "deepmind_blog",
    "also_seen_in": [],
-   "commentary": "DeepMind가 가장 강력한 비전-언어-행동(VLA) 모델이라는 Gemini Robotics 2.5를 발표했다. 로봇의 손재주(dexterity), 신뢰성, 안전성을 높였다고 하며, 범용 로봇 모델 경쟁의 현재 수준을 보여준다."
+   "importance": 2,
+   "commentary": "DeepMind가 가장 강력한 VLA 모델 Gemini Robotics 2.5를 내놓았다. 로봇의 정교한 조작 능력, 신뢰성, 안전성이 개선됐다고 밝혀 로봇 파운데이션 모델 경쟁이 이어지고 있음을 보여 준다."
   },
   {
    "category": "ai_industry",
-   "title": "Measuring how AI agents handle everyday wet-lab science",
-   "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
-   "source": "openai_news",
+   "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+   "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease",
+   "source": "deepmind_blog",
    "also_seen_in": [],
-   "commentary": "OpenAI가 AI 에이전트가 원시 실험 데이터를 해석하고 일상적인 웻랩(wet-lab) 과학 작업을 얼마나 잘 처리하는지 재는 100개 과제 벤치마크 BioBasicsBench를 소개했다. 생명과학 분야 에이전트 평가의 기준점이 될 수 있다."
+   "importance": 1,
+   "commentary": "DeepMind의 AlphaGenome 2는 DNA 서열과 변이가 세포 유형별로, 그리고 질병에 어떤 영향을 주는지 예측한다. 유전체 해석과 질병 연구 쪽 사람들에게 의미가 있다."
   },
   {
    "category": "dev",
@@ -109,15 +121,8 @@
    "url": "https://github.com/cloudflare/security-audit-skill",
    "source": "github_trending",
    "also_seen_in": [],
-   "commentary": "코딩 에이전트용 스킬(skill)로, 독립적으로 검증된 기계 판독 가능한 결과를 내는 다단계 보안 감사를 수행한다. GitHub 트렌딩 상위에 올라 에이전트 기반 보안 점검에 대한 관심을 보여준다."
-  },
-  {
-   "category": "dev",
-   "title": "vercel-labs/agent-desktop",
-   "url": "https://github.com/vercel-labs/agent-desktop",
-   "source": "github_trending",
-   "also_seen_in": [],
-   "commentary": "AI 에이전트가 컴퓨터를 조작하게 하는 computer use용 CLI 도구다. 에이전트에게 데스크톱 제어 권한을 주는 워크플로를 간단히 실험해 보려는 개발자에게 유용하다."
+   "importance": 2,
+   "commentary": "Cloudflare가 코딩 에이전트용 보안 감사 스킬을 공개했다. 여러 단계의 감사를 거쳐 독립적으로 검증된 기계 판독형 결과를 내놓아, 에이전트 기반 코드 보안 점검의 실용적 사례다."
   },
   {
    "category": "dev",
@@ -125,7 +130,17 @@
    "url": "https://github.com/anthropics/claude-code/issues/107757",
    "source": "hacker_news",
    "also_seen_in": [],
-   "commentary": "Claude Code가 이메일 주소를 웹사이트로 보낸다는 내용으로 Hacker News에서 큰 반향을 얻었다. 코딩 에이전트가 어떤 데이터를 외부로 내보내는지 점검해야 한다는 점을 상기시킨다."
+   "importance": 2,
+   "commentary": "Claude Code가 사용자의 이메일 주소를 웹사이트에 전송한다는 지적이 Hacker News에서 높은 관심을 받았다. 코딩 에이전트가 어떤 개인정보를 외부로 보내는지 점검해야 한다는 개발자 우려를 보여 준다."
+  },
+  {
+   "category": "dev",
+   "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+   "url": "https://thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+   "source": "hacker_news",
+   "also_seen_in": [],
+   "importance": 1,
+   "commentary": "Goldman Sachs가 은행가와 트레이더에게서 Claude Code를 회수한다는 소식이다. 금융권처럼 규제가 엄격한 조직에서 코딩 에이전트 도입이 얼마나 신중하게 다뤄지는지 보여 주는 사례다."
   },
   {
    "category": "dev",
@@ -133,15 +148,8 @@
    "url": "https://mitchellh.com/writing/libghostty-1-0",
    "source": "hacker_news",
    "also_seen_in": [],
-   "commentary": "터미널 에뮬레이터 Ghostty의 핵심 라이브러리인 libghostty가 1.0에 도달했다. 터미널 기능을 다른 애플리케이션에 내장하려는 개발자에게 안정된 기반이 생겼다는 의미다."
-  },
-  {
-   "category": "kr",
-   "title": "더 나은, 더 효율적인 RAG를 위한 빠른 검색",
-   "url": "https://news.hada.io/topic?id=37031",
-   "source": "geeknews",
-   "also_seen_in": [],
-   "commentary": "Apple 연구진이 고정된 벡터 DB와 실제 질의 분포로 작은 신경망(SupportNet)을 미리 학습해 최대 내적 검색(MIPS)의 속도와 정확도를 높이는 방법을 개발했다. 기존 중심점 기반 검색이 놓치던 최적 키를 줄여 검색 증강 생성(RAG) 성능 개선에 도움이 된다."
+   "importance": 1,
+   "commentary": "터미널 에뮬레이터 Ghostty의 핵심 라이브러리 Libghostty가 1.0에 도달했다. 터미널 기능을 다른 애플리케이션에 내장하려는 개발자에게 쓸모 있는 소식이다."
   },
   {
    "category": "kr",
@@ -149,7 +157,17 @@
    "url": "https://news.hada.io/topic?id=37014",
    "source": "geeknews",
    "also_seen_in": [],
-   "commentary": "United Airlines가 승인되지 않은 제3자 AI 에이전트의 대리 항공편 예약을 금지하도록 정책을 개정 중이다. 에이전트가 사용자 대신 결제·예약하는 시대에 서비스 사업자가 어떻게 선을 긋는지 보여주는 사례다."
+   "importance": 2,
+   "commentary": "United Airlines가 승인되지 않은 제3자 AI 에이전트의 대리 항공권 예약을 금지하도록 정책을 고치고 있다. 계정 정보 노출 같은 위험을 이유로 들어, 에이전트가 서비스를 대신 이용하는 시대의 접근 통제 논쟁을 보여 준다."
+  },
+  {
+   "category": "kr",
+   "title": "공개 연구로 강화하는 개인정보 보호: Firefox 사용자의 핑거프린팅을 더 어렵게 만들기",
+   "url": "https://news.hada.io/topic?id=37010",
+   "source": "geeknews",
+   "also_seen_in": [],
+   "importance": 1,
+   "commentary": "Firefox가 약 2,500만 명의 측정값을 분석해 핑거프린팅(fingerprinting) 추적을 더 어렵게 만드는 방법을 설명한다. 소수의 브라우저 기능만 보호해도 널리 쓰이는 기법을 크게 약화할 수 있다고 한다."
   }
  ]
 }

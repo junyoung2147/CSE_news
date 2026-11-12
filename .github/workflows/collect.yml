@@ -1,0 +1,38 @@
+name: collect
+
+on:
+  schedule:
+    - cron: "0 11 * * 0"   # 일요일 20:00 KST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Collect candidates
+        run: |
+          # 이미 게시한 호의 URL을 제외 목록으로 사용 (호가 없으면 빈 파일)
+          jq -r '.items[].url' docs/issues/2*.json > seen_urls.txt 2>/dev/null || true
+          mkdir -p data/candidates
+          python -m digest.collect --exclude seen_urls.txt --out "data/candidates/$(TZ=Asia/Seoul date +%F).json"
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/candidates
+          git diff --cached --quiet && exit 0
+          git commit -m "chore(data): $(TZ=Asia/Seoul date +%F) 후보 수집"
+          git pull --rebase
+          git push

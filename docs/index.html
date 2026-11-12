@@ -3,28 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
   <title>개발·AI 주간 소식</title>
-  <meta name="description" content="매주 개발·AI 소식을 골라 해석과 함께 정리합니다.">
+  <meta name="description" content="매주 개발·AI 소식을 골라 해석과 함께 정리합니다">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="masthead">
-    <div class="wrap">
-      <p class="kicker">Weekly</p>
-      <h1><a href="./">개발·AI 주간 소식</a></h1>
-      <nav class="issue-nav" aria-label="호 선택">
-        <label for="issue-select">지난 호</label>
-        <select id="issue-select" disabled></select>
-      </nav>
-    </div>
+  <header class="wrap topbar">
+    <h1 class="brand"><a href="./">cse_news</a><span class="brand-sub">/ 개발·AI 주간 소식</span></h1>
+    <label class="issue-pick">
+      <span class="visually-hidden">호 선택</span>
+      <select id="issue-select" disabled></select>
+    </label>
   </header>
 
   <main class="wrap" id="main" aria-live="polite">
-    <p class="status">불러오는 중…</p>
+    <p class="status">불러오는 중</p>
   </main>
 
   <footer class="wrap footer">
-    <p>후보는 <a href="https://github.com/junyoung2147/CSE_news">CSE_news</a> 수집 스크립트가 모으고, 선별과 해석은 Claude가 작성합니다.</p>
+    <p>후보 수집 <a href="https://github.com/junyoung2147/CSE_news">CSE_news</a> · 선별과 해석 Claude</p>
   </footer>
 
   <script src="app.js"></script>

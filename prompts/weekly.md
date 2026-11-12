@@ -92,12 +92,20 @@
    python -m json.tool docs/issues/<date>.json > /dev/null && python -m json.tool docs/issues/index.json > /dev/null
    ```
 2. 모든 `url`이 candidates 파일에 있는지, 모든 `importance`가 1·2·3 중 하나이고 3이 2~4개인지 확인합니다.
-3. 이 두 파일만 커밋해 main에 push합니다:
+3. `intro`와 모든 `commentary`를 처음부터 다시 읽으며 문체와 용어 표기를 점검하고, 걸리는 곳은 고친 뒤 1번부터 다시 검증합니다.
+   - **모든 문장이 '-습니다/-니다'로 끝나는가.**
+   - **병기한 번역어가 실제로 널리 쓰이는 말인가.** 국내 기술 문서·뉴스에서 본 적이 없는 말을 만들어 내지 않았는지 봅니다. 확신이 없으면 병기를 지우고 영어로만 씁니다.
+     예: ×"파라미터 사전 정보(task arithmetic)" → ○"task arithmetic"
+   - **같은 용어를 두 번 병기하지 않았는가.** 호 전체에서 items 순서상 처음 나온 곳에만 병기하고, 그 뒤로는 한쪽 표기만 씁니다.
+     예: 두 번째 "비전-언어-행동(VLA) 모델" → "VLA 모델"
+   - **영어로 쓰기로 한 용어를 한글로 소리 나는 대로 적지 않았는가.** 특히 token, embedding, prompt, benchmark, Transformer, LoRA를 확인합니다.
+     예: ×"출력 토큰" → ○"출력 token"
+4. 이 두 파일만 커밋해 main에 push합니다:
    ```
    docs: <date> 주간 소식 게시
 
    N개 항목 (AI 연구 a, AI 업계 b, 개발 c, 국내 d)
    ```
-4. 출력에는 고른 항목 수, 카테고리별 개수, 실패한 소스를 남깁니다.
+5. 출력에는 고른 항목 수, 카테고리별 개수, 실패한 소스를 남깁니다.
 
 다른 파일(코드, `data/`, 페이지 파일)은 수정하지 않습니다.

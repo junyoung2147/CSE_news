@@ -19,7 +19,7 @@
    "source": "hf_daily_papers",
    "also_seen_in": [],
    "importance": 2,
-   "commentary": "번역기나 음성 에이전트처럼 기계가 출력 토큰을 바로 소비하는 환경을 겨냥한 스트리밍 음성 인식(ASR) 모델입니다. 한 번 나온 토큰이 뒤늦게 바뀌지 않는 안정적인 prefix를 강조하며, 실시간 음성 서비스 개발자에게 의미가 있습니다."
+   "commentary": "번역기나 음성 에이전트처럼 기계가 출력 token을 바로 소비하는 환경을 겨냥한 스트리밍 음성 인식(ASR) 모델입니다. 한 번 나온 token이 뒤늦게 바뀌지 않는 안정적인 prefix를 강조하며, 실시간 음성 서비스 개발자에게 의미가 있습니다."
   },
   {
    "category": "ai_research",
@@ -55,7 +55,7 @@
    "source": "hf_daily_papers",
    "also_seen_in": [],
    "importance": 1,
-   "commentary": "여러 교사 모델의 능력을 학생 모델의 궤적 위에서 합치는 지식 증류(knowledge distillation)를, 파라미터 사전 정보(task arithmetic)로 가속하는 방법입니다. 모델 병합과 증류를 함께 고민하는 분들에게 관련이 있습니다."
+   "commentary": "여러 교사 모델의 능력을 학생 모델의 궤적 위에서 합치는 지식 증류(knowledge distillation)를, task arithmetic으로 가속하는 방법입니다. 모델 병합과 증류를 함께 고민하는 분들에게 관련이 있습니다."
   },
   {
    "category": "ai_research",
@@ -104,7 +104,7 @@
    "source": "deepmind_blog",
    "also_seen_in": [],
    "importance": 2,
-   "commentary": "Google DeepMind가 가장 강력한 비전-언어-행동(VLA) 모델이라며 Gemini Robotics 2.5를 공개했습니다. 실제 환경에서의 손재주, 신뢰성, 안전성을 개선했다고 밝혀 로보틱스 분야의 흐름을 가늠하게 합니다."
+   "commentary": "Google DeepMind가 가장 강력한 VLA 모델이라며 Gemini Robotics 2.5를 공개했습니다. 실제 환경에서의 손재주, 신뢰성, 안전성을 개선했다고 밝혀 로보틱스 분야의 흐름을 가늠하게 합니다."
   },
   {
    "category": "ai_industry",

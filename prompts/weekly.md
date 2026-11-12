@@ -27,6 +27,18 @@
 
 `intro`는 이번 주 흐름을 1~2문장으로 요약합니다.
 
+### 중요도 (`importance`)
+항목마다 1~3 중 하나를 매깁니다. 페이지에서 배지로 보여 주고, 같은 카테고리 안에서는 높은 순으로 정렬됩니다.
+
+| 값 | 표시 | 기준 |
+|---|---|---|
+| 3 | 핵심 | 이번 주에 하나만 읽는다면 이것. 판도를 바꾸는 발표, 널리 쓰이는 도구·모델의 큰 변화. **호 전체에서 2~4개** |
+| 2 | 주목 | 해당 분야 사람이라면 챙겨 볼 만한 것. 여러 소스에 나왔거나(`also_seen_in`) 소스 안에서 점수가 높은 것 |
+| 1 | 참고 | 알아 두면 좋은 것, 특정 분야에만 의미가 있는 것 |
+
+- 신호의 크기(점수, `also_seen_in`)와 내용의 파급력을 함께 봅니다. 점수만으로 정하지 않습니다.
+- 모든 항목을 3이나 2로 매기지 않습니다. 대략 핵심 2~4 / 주목 절반 / 나머지 참고가 되게 합니다.
+
 ## 4. 파일 쓰기
 `docs/issues/<date>.json`:
 ```json
@@ -41,6 +53,7 @@
       "url": "candidates의 url 그대로",
       "source": "candidates의 source 그대로",
       "also_seen_in": ["hacker_news"],
+      "importance": 2,
       "commentary": "해석 2~3문장"
     }
   ]
@@ -48,6 +61,7 @@
 ```
 - `category`는 candidates 값 그대로 씁니다(`ai_research`, `ai_industry`, `dev`, `kr`).
 - `url`은 **반드시 candidates의 `url`을 그대로** 씁니다. 다음 주 수집에서 이 URL로 이미 다룬 항목을 제외하기 때문입니다.
+- `importance`는 정수 1, 2, 3 중 하나입니다(문자열 아님).
 - items는 카테고리 순서(ai_research → ai_industry → dev → kr)로, 같은 카테고리 안에서는 중요한 순서로 둡니다.
 
 `docs/issues/index.json`은 최신 호가 맨 앞에 오는 배열입니다. 같은 `date`가 있으면 교체합니다:
@@ -62,7 +76,7 @@
    ```bash
    python -m json.tool docs/issues/<date>.json > /dev/null && python -m json.tool docs/issues/index.json > /dev/null
    ```
-2. 모든 `url`이 candidates 파일에 있는지 확인합니다.
+2. 모든 `url`이 candidates 파일에 있는지, 모든 `importance`가 1·2·3 중 하나이고 3이 2~4개인지 확인합니다.
 3. 이 두 파일만 커밋해 main에 push합니다:
    ```
    docs: <date> 주간 소식 게시

@@ -18,6 +18,7 @@ const SOURCE_NAMES = {
   geeknews: "GeekNews",
 };
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const IMPORTANCE = { 3: "핵심", 2: "주목", 1: "참고" };
 
 const main = document.getElementById("main");
 const select = document.getElementById("issue-select");
@@ -63,9 +64,16 @@ function formatDate(date) {
   return `${y}년 ${m}월 ${d}일`;
 }
 
+/** 중요도(1~3)를 돌려준다. 없거나 잘못된 값이면 0 (표시 안 함). */
+function importanceOf(item) {
+  return IMPORTANCE[item.importance] ? item.importance : 0;
+}
+
 /** 항목 하나를 카드로 만든다. */
 function renderItem(item) {
-  const card = el("article", "item");
+  const level = importanceOf(item);
+  const card = el("article", level ? `item imp-${level}` : "item");
+  if (level) card.append(el("p", `importance imp-${level}`, IMPORTANCE[level]));
   const h3 = el("h3");
   const href = safeUrl(item.url);
   if (href) {
@@ -99,7 +107,9 @@ function renderIssue(issue) {
   const known = new Set(CATEGORIES.map(([key]) => key));
   const groups = [...CATEGORIES, ["_other", "기타"]];
   for (const [key, label] of groups) {
-    const list = items.filter((i) => (key === "_other" ? !known.has(i.category) : i.category === key));
+    const list = items
+      .filter((i) => (key === "_other" ? !known.has(i.category) : i.category === key))
+      .sort((a, b) => importanceOf(b) - importanceOf(a)); // 안정 정렬: 같은 단계는 원래 순서 유지
     if (!list.length) continue;
     const section = el("section", "category");
     const h = el("h2", "category-title", label);

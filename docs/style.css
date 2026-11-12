@@ -1,0 +1,75 @@
+:root {
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --text: #1d1c1a;
+  --muted: #6b675f;
+  --line: #e6e2d9;
+  --accent: #b4441f;
+  --badge-bg: #f1ede4;
+  --serif: "Iowan Old Style", "Apple Garamond", Georgia, "Noto Serif KR", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161514;
+    --surface: #1e1d1b;
+    --text: #ece9e2;
+    --muted: #a19c92;
+    --line: #34322e;
+    --accent: #e8825c;
+    --badge-bg: #2a2825;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.7 var(--sans);
+  -webkit-text-size-adjust: 100%;
+}
+a { color: inherit; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+
+.masthead { border-bottom: 1px solid var(--line); padding: 40px 0 20px; }
+.kicker { margin: 0; color: var(--accent); font-size: 13px; font-weight: 600; }
+.masthead h1 { margin: 2px 0 16px; font: 700 32px/1.2 var(--serif); }
+.masthead h1 a { text-decoration: none; }
+.issue-nav { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
+.issue-nav select {
+  font: inherit; color: var(--text); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px;
+}
+
+.issue-head { padding: 32px 0 8px; }
+.issue-head .date { margin: 0; color: var(--muted); font-size: 14px; }
+.issue-head h2 { margin: 4px 0 8px; font: 700 26px/1.3 var(--serif); }
+.intro { margin: 0; font-size: 17px; }
+
+.category { padding-top: 24px; }
+.category-title {
+  display: flex; align-items: baseline; gap: 8px;
+  margin: 0 0 4px; padding-bottom: 8px; border-bottom: 2px solid var(--text);
+  font-size: 15px; font-weight: 700;
+}
+.count { color: var(--muted); font-weight: 400; font-size: 13px; }
+
+.item { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.item h3 { margin: 0 0 6px; font: 600 19px/1.4 var(--serif); }
+.item h3 a { text-decoration: none; }
+.item h3 a:hover, .item h3 a:focus-visible { color: var(--accent); text-decoration: underline; }
+.commentary { margin: 0 0 10px; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; font-size: 12.5px; color: var(--muted); }
+.badge { background: var(--badge-bg); border-radius: 4px; padding: 1px 7px; }
+.host { margin-left: 2px; overflow-wrap: anywhere; }
+
+.status { padding: 48px 0; color: var(--muted); text-align: center; }
+.status.error { color: var(--accent); }
+.footer { padding: 32px 16px 48px; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 480px) {
+  .masthead { padding-top: 28px; }
+  .masthead h1 { font-size: 26px; }
+  .issue-head h2 { font-size: 22px; }
+}

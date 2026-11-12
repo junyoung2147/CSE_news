@@ -7,23 +7,25 @@ Claude Code에서 이 문서를 읽고 저장소와 스크립트를 구현합니
 
 ### 전체 시스템에서 이 저장소가 맡는 부분
 
-| 단계 | 담당 | 이 저장소에서 구현? |
+> **2026-11-12 변경:** Cowork 예약 작업 + 아카이브 DB 구조를 버리고, 저장소 하나로 끝나는 구조로 바꿨습니다.
+> GitHub Actions(수집) → Claude Code 클라우드 루틴(선별·해석) → GitHub Pages(정적 HTML+JS 뷰어).
+
+| 단계 | 담당 | 결과물 |
 |---|---|---|
-| ① 수집 + ② 1차 거르기 | **이 스크립트** | ✅ |
-| ③ 선별 · ④ 해석 작성 | 예약 작업 안의 Claude | ❌ |
-| ⑤ 아카이브 페이지 저장 · 알림 | Claude 아카이브 페이지 + 예약 작업 | ❌ |
+| ① 수집 + ② 1차 거르기 | **이 스크립트**, GitHub Actions가 매주 일요일 20:00 KST에 실행 (`.github/workflows/collect.yml`) | `data/candidates/YYYY-MM-DD.json` 커밋 |
+| ③ 선별 · ④ 해석 작성 | Claude Code 루틴, 일요일 22:00 KST (`prompts/weekly.md`를 따름) | `docs/issues/<date>.json` + `docs/issues/index.json` 커밋 |
+| ⑤ 게시 | GitHub Pages가 `docs/`를 그대로 서빙. `app.js`가 JSON을 fetch해서 그림 | https://junyoung2147.github.io/CSE_news/ |
 
 - 스크립트는 **LLM을 호출하지 않습니다.** 정해진 규칙에 따라 모으고 거르기만 합니다.
-- 아카이브 페이지, 데이터베이스, 예약 작업은 Cowork에서 따로 만듭니다. 이 저장소에서는 만들지 않습니다.
+- "이미 다룬 링크"는 DB 대신 **게시된 호 JSON의 `url`**에서 뽑습니다(workflow에서 `jq`).
 
-### 예약 작업이 이 스크립트를 쓰는 방식 (인터페이스 계약)
+### Actions가 이 스크립트를 쓰는 방식 (인터페이스 계약)
 
 ```
-1. git clone https://github.com/<user>/dev-ai-digest   # 공개 저장소
-2. pip install -r requirements.txt
-3. 아카이브 DB에 저장된 "이미 다룬 링크"를 seen_urls.txt로 저장
-4. python -m digest.collect --exclude seen_urls.txt --out candidates.json
-5. Claude가 candidates.json만 읽고 선별
+1. pip install -r requirements.txt
+2. jq -r '.items[].url' docs/issues/2*.json > seen_urls.txt
+3. python -m digest.collect --exclude seen_urls.txt --out data/candidates/YYYY-MM-DD.json
+4. 커밋 → Claude 루틴이 최신 candidates 파일만 읽고 선별
 ```
 
 따라서 **명령 한 줄로 실행되고, 결과가 JSON 파일 하나로 나와야 합니다.**
@@ -172,16 +174,16 @@ python -m digest.collect [옵션]
 - [ ] README에 사용법과 알려진 한계가 정리됨
 - [ ] 공개 GitHub 저장소에 푸시됨
 
-## 9. 이후 단계 (Cowork에서 진행, 이 저장소 범위 밖)
+## 9. 이후 단계
 
-1. 예약 작업과 같은 클라우드 환경에서 clone → 실행 테스트 (사이트 접속이 막히는지 확인)
-2. 아카이브 페이지와 데이터베이스 구조 만들기
-3. 예약 작업 프롬프트 작성 (선별 기준, 항목 형식, 비중 AI 연구 40 / AI 업계 30 / 개발 20 / 국내 10)
-4. 수동 실행으로 결과 검토 후 조정
+1. ~~GitHub Actions runner에서 수동 실행해 사이트 접속 확인~~ (`gh workflow run collect.yml`)
+2. ~~뷰어 페이지와 호 JSON 형식 만들기~~ (`docs/`, 형식은 `prompts/weekly.md`)
+3. ~~루틴 작업 지시서 작성~~ (`prompts/weekly.md`: 선별 기준, 비중 AI 연구 40 / AI 업계 30 / 개발 20 / 국내 10)
+4. Claude Code 루틴 등록 후 수동 실행으로 결과 검토하고 조정
 
 ## 10. 하지 않는 것
 
 - LLM API 호출, 요약 생성
 - 로그인이 필요한 사이트, 유료 매체, X(트위터), Reddit
 - 브라우저 자동화(Playwright, Selenium)
-- 데이터베이스나 웹페이지 만들기
+- 데이터베이스, 서버, 빌드 단계가 있는 웹페이지 (뷰어는 JSON을 읽기만 하는 정적 HTML+JS 한 장)

@@ -2,7 +2,19 @@
 
 매주 개발·AI 소식 정리 자동화의 **1단계(수집 + 1차 거르기)** 스크립트입니다. LLM을 호출하지 않고, 정해진 규칙대로 모으고 걸러서 JSON 파일 하나(`candidates.json`, 60KB 이하)를 만듭니다. 설계는 [PLAN.md](PLAN.md)를 보세요.
 
-## 사용법
+## 주간 파이프라인
+
+| 언제 (KST) | 누가 | 무엇을 |
+|---|---|---|
+| 일요일 20:00 | GitHub Actions (`.github/workflows/collect.yml`) | 이 스크립트를 실행해 `data/candidates/YYYY-MM-DD.json`을 커밋. 이미 게시한 호의 URL은 제외 |
+| 일요일 22:00 | Claude Code 루틴 (`prompts/weekly.md`) | 최신 candidates에서 15~20개를 고르고 해석을 써서 `docs/issues/<date>.json`과 `index.json`을 커밋 |
+| 커밋 직후 | GitHub Pages (`docs/`) | 정적 뷰어(`index.html` + `app.js`)가 JSON을 fetch해서 그림. 빌드 없음, 몇 분 안에 반영 |
+
+- 사이트: https://junyoung2147.github.io/CSE_news/ (`#YYYY-MM-DD`로 특정 호 이동)
+- 수집 수동 실행: `gh workflow run collect.yml` → `gh run watch`
+- 호 JSON 형식과 선별 기준: [`prompts/weekly.md`](prompts/weekly.md). 호 JSON을 직접 고쳐서 push해도 페이지에 그대로 반영됩니다.
+
+## 사용법 (로컬)
 
 ```bash
 git clone https://github.com/junyoung2147/CSE_news

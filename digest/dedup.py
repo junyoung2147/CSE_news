@@ -8,7 +8,7 @@ log = logging.getLogger(__name__)
 
 
 def merge(items: list[Item], priority: list[str]) -> list[Item]:
-    """Collapse items sharing an id. The source earliest in `priority` (the primary source) is kept."""
+    """같은 id끼리 합친다. priority에서 앞선 소스(1차 출처)를 대표로 두고 나머지는 also_seen_in에 넣는다."""
     rank = {name: i for i, name in enumerate(priority)}
     groups: dict[str, Item] = {}
     for it in sorted(items, key=lambda i: (rank.get(i.source, len(rank)), -(i.score or 0))):
@@ -25,6 +25,7 @@ def merge(items: list[Item], priority: list[str]) -> list[Item]:
 
 
 def exclude(items: list[Item], path: str | None) -> list[Item]:
+    """이미 다룬 URL 파일(한 줄에 하나)과 id가 같은 항목을 뺀다. 파일이 없으면 그대로 둔다."""
     if not path:
         return items
     if not os.path.exists(path):

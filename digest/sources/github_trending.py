@@ -10,6 +10,7 @@ NAME = "github_trending"
 
 
 def parse(html: str) -> list[Item]:
+    """Trending HTML의 저장소 행을 Item 목록으로 바꾼다. score는 이번 주 스타 수."""
     items = []
     for row in BeautifulSoup(html, "html.parser").select("article.Box-row"):
         repo = row.h2.a["href"].strip("/")
@@ -25,6 +26,7 @@ def parse(html: str) -> list[Item]:
 
 
 def fetch(start, end) -> list[Item]:
+    """주간 Trending을 가져온다. 항목에 날짜가 없어 기간 필터는 적용하지 않는다."""
     # Trending is "this week" relative to now; it has no per-item dates, so the window is not applied.
     items = parse(get(config.URLS[NAME]).text)
     if not items:

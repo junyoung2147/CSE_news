@@ -9,6 +9,7 @@ KST = timezone(timedelta(hours=9))
 
 
 def parse(data: list) -> list[Item]:
+    """HF daily_papers 응답을 Item 목록으로 바꾼다 (url은 arXiv abs 링크)."""
     items = []
     for p in data:
         paper = p["paper"]
@@ -23,7 +24,7 @@ def parse(data: list) -> list[Item]:
 
 
 def fetch(start: datetime, end: datetime) -> list[Item]:
-    """One request per KST calendar day touched by the window (the API is day-granular)."""
+    """기간에 걸친 KST 날짜마다 한 번씩 요청한다 (API가 일 단위라서)."""
     day, last = start.astimezone(KST).date(), end.astimezone(KST).date()
     items = []
     while day <= last:

@@ -14,10 +14,12 @@ CATEGORY = "ai_industry"
 
 
 def openai(start, end):
+    """OpenAI News RSS에서 기간 내 글을 가져온다."""
     return in_window(parse_feed(get(config.URLS["openai_news"]).content, "openai_news", CATEGORY), start, end)
 
 
 def deepmind(start, end):
+    """Google DeepMind 블로그 RSS에서 기간 내 글을 가져온다."""
     return in_window(parse_feed(get(config.URLS["deepmind_blog"]).content, "deepmind_blog", CATEGORY), start, end)
 
 
@@ -26,11 +28,13 @@ _SITEMAP_ENTRY = re.compile(r"<loc>(https://www\.anthropic\.com/news/[^<]+)</loc
 
 
 def parse_anthropic_sitemap(xml: str, since: datetime) -> list[str]:
+    """sitemap에서 lastmod가 since 이후인 /news/ 주소를 최신순으로 뽑는다."""
     entries = [(u, datetime.fromisoformat(m)) for u, m in _SITEMAP_ENTRY.findall(xml)]
     return [u for u, m in sorted(entries, key=lambda e: e[1], reverse=True) if m >= since]
 
 
 def parse_anthropic_article(html: str, url: str) -> Item | None:
+    """글 페이지 meta 태그에서 제목·발행일·설명을 읽는다. 발행일이 없으면 None."""
     soup = BeautifulSoup(html, "html.parser")
     published = soup.find("meta", property="article:published_time")
     if not published:  # category/index pages under /news/ have no publish date
@@ -46,6 +50,7 @@ def parse_anthropic_article(html: str, url: str) -> Item | None:
 
 
 def anthropic(start, end):
+    """sitemap으로 후보 글을 고르고 각 글의 발행일로 기간을 다시 거른다."""
     urls = parse_anthropic_sitemap(get(config.URLS["anthropic_sitemap"]).text, start)
     items = []
     for url in urls[: config.ANTHROPIC_MAX_ARTICLES]:
@@ -63,6 +68,7 @@ _META_LINK = re.compile(r"^https://ai\.meta\.com/blog/[a-z0-9-]+/?$")
 
 
 def _meta_date(text: str) -> datetime | None:
+    """'July 9, 2026' / 'Jul 9, 2026' 형식 날짜를 UTC datetime으로 바꾼다."""
     for fmt in ("%B %d, %Y", "%b %d, %Y"):
         try:
             return datetime.strptime(text.strip(), fmt).replace(tzinfo=timezone.utc)
@@ -72,6 +78,7 @@ def _meta_date(text: str) -> datetime | None:
 
 
 def parse_meta(html: str) -> list[Item]:
+    """Meta 블로그 HTML에서 날짜 문자열과 같은 카드 안의 글 링크를 짝지어 Item을 만든다."""
     soup = BeautifulSoup(html, "html.parser")
     items: dict[str, Item] = {}
     for date_text in soup.find_all(string=_META_DATE):
@@ -90,4 +97,5 @@ def parse_meta(html: str) -> list[Item]:
 
 
 def meta(start, end):
+    """Meta AI 블로그 첫 페이지에서 기간 내 글을 가져온다."""
     return in_window(parse_meta(get(config.URLS["meta_ai_blog"]).text), start, end)

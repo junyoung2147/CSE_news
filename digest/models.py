@@ -19,6 +19,7 @@ class Item:
     id: str = ""
 
     def to_dict(self) -> dict:
+        """출력 JSON용 dict로 바꾼다. 키 순서를 고정하고 날짜는 ISO 8601 문자열로 쓴다."""
         d = asdict(self)
         d["published_at"] = self.published_at.isoformat() if self.published_at else None
         order = ["id", "source", "also_seen_in", "category", "is_ai", "title", "url",

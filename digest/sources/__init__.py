@@ -17,7 +17,7 @@ _last_hit: dict[str, float] = {}
 
 
 def get(url: str, **params) -> requests.Response:
-    """GET with per-host spacing and retries on network errors, 429 and 5xx. Other 4xx raise at once."""
+    """호스트별 간격을 두고 GET한다. 네트워크 오류·429·5xx는 재시도하고, 그 밖의 4xx는 바로 예외를 던진다."""
     host = urlsplit(url).netloc
     err: Exception | None = None
     for attempt in range(config.RETRIES + 1):
@@ -40,6 +40,7 @@ def get(url: str, **params) -> requests.Response:
 
 
 def parse_feed(content: bytes | str, source: str, category: str) -> list[Item]:
+    """RSS/Atom 내용을 Item 목록으로 바꾼다. 날짜는 UTC로 둔다."""
     feed = feedparser.parse(content)
     if not feed.entries and feed.bozo:
         raise ValueError(f"unparseable feed: {feed.bozo_exception}")
@@ -55,4 +56,5 @@ def parse_feed(content: bytes | str, source: str, category: str) -> list[Item]:
 
 
 def in_window(items: list[Item], start: datetime, end: datetime) -> list[Item]:
+    """published_at이 [start, end) 안에 있는 항목만 남긴다."""
     return [i for i in items if i.published_at and start <= i.published_at < end]

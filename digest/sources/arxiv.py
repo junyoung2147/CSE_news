@@ -12,6 +12,7 @@ log = logging.getLogger(__name__)
 
 
 def parse(content: bytes | str) -> dict[str, dict]:
+    """arXiv API 응답에서 ID별 초록과 저자를 뽑는다."""
     out = {}
     for e in feedparser.parse(content).entries:
         if aid := arxiv_id(e.get("id", "")):
@@ -20,6 +21,7 @@ def parse(content: bytes | str) -> dict[str, dict]:
 
 
 def enrich(items: list[Item]) -> None:
+    """초록이 없는 arXiv 항목만 한 번에 조회해 summary와 저자를 채운다. 실패해도 넘어간다."""
     need = [i for i in items if i.arxiv_id and not i.summary]
     if not need:
         return

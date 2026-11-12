@@ -29,7 +29,7 @@ SOURCES = {
 
 
 def window(start: str | None, end: str | None, now: datetime) -> tuple[datetime, datetime]:
-    """KST dates in, aware datetimes out. --end is inclusive (until 24:00 KST that day)."""
+    """KST 날짜 옵션을 UTC 기간으로 바꾼다. --end는 그날 24:00까지 포함한다."""
     e = datetime.combine(date.fromisoformat(end) + timedelta(days=1), time(), KST) if end else now
     s = datetime.combine(date.fromisoformat(start), time(), KST) if start else e - timedelta(days=7)
     if s >= e:
@@ -38,6 +38,7 @@ def window(start: str | None, end: str | None, now: datetime) -> tuple[datetime,
 
 
 def prepare(it: Item) -> None:
+    """URL 정규화, arXiv ID·id 계산, 요약 정리, is_ai 판정을 한다."""
     it.url = normalize_url(it.url)
     it.arxiv_id = it.arxiv_id or arxiv_id(it.url)
     it.id = make_id(it.url)
@@ -47,6 +48,7 @@ def prepare(it: Item) -> None:
 
 
 def top_n(items: list[Item]) -> list[Item]:
+    """소스별로 점수순 상위 N개만 남긴다 (점수가 없으면 원래 순서 유지)."""
     by_source = defaultdict(list)
     for it in items:
         by_source[it.source].append(it)
@@ -58,7 +60,7 @@ def top_n(items: list[Item]) -> list[Item]:
 
 
 def render(doc: dict, items: list[Item]) -> str:
-    """Serialize; if over the size budget, shorten summaries step by step."""
+    """JSON으로 직렬화한다. 크기 한도를 넘으면 summary를 단계적으로 줄인다."""
     for limit in (config.SUMMARY_MAX, 200, 120, 60, 0):
         for it in items:
             it.summary = clean_summary(it.summary, limit) if limit else ""
@@ -72,6 +74,7 @@ def render(doc: dict, items: list[Item]) -> str:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """CLI 진입점. 수집→정규화→합치기→제외→상위 N→보강→출력 후 종료 코드를 돌려준다."""
     ap = argparse.ArgumentParser(prog="python -m digest.collect", description=__doc__)
     ap.add_argument("--start", help="start date YYYY-MM-DD (KST, default: 7 days before end)")
     ap.add_argument("--end", help="end date YYYY-MM-DD, inclusive (KST, default: now)")

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom'>
+<title>GeekNews - 개발/기술/스타트업 뉴스 서비스</title>
+<subtitle>개발 뉴스, 기술 관련 새소식, 스타트업 정보와 노하우, 세상의 재미난 것들을 좋아하는 사람들을 위한 뉴스 사이트. 이메일 뉴스레터/X(Twitter)/Slack용 봇으로 구독 가능</subtitle>
+<link rel='alternate' type='text/html' href='https://news.hada.io' />
+<link rel='self' type='application/atom+xml' href='https://news.hada.io/rss/news' />
+<id>https://news.hada.io/rss/news</id>
+<author>
+<name>GeekNews</name>
+<email>news@hada.io</email>
+<uri>https://news.hada.io</uri>
+</author>
+<updated>2026-11-12T12:05:46+09:00</updated>
+<icon>https://social.news.hada.io/favicon.png</icon>
+<logo>https://social.news.hada.io/WideLogo500.png</logo>
+<category term='technology'/>
+<entry>
+  <title><![CDATA[AI와 일할 때 가장 자주 던지는 질문: 지금 관성에 끌려가고 있는가?]]></title>
+  <link rel='alternate' type='text/html' href='https://news.hada.io/topic?id=37030&amp;utm_source=geeknews&amp;utm_medium=rss&amp;utm_campaign=news' />
+  <id>https://news.hada.io/topic?id=37030</id>
+  <updated>2026-11-12T12:05:46+09:00</updated>
+  <published>2026-11-12T12:05:46+09:00</published>
+  <author>
+    <name>ibare</name>
+    <uri>https://news.hada.io/user/ibare</uri>
+  </author>
+  <content type='html' xml:lang='ko'><![CDATA[<div><p>AI 에이전트와 1년 넘게 개발하며, 할루시네이션보다 자주 마주한 문제는 각 단계가 합리적으로 보이는데도 처음의 전제를 의심하지 않은 채 계속 나아가는 것이었습니다. 저는 이것을 관성이라고 부릅니다.</p><p>글에서는 세 가지 경험을 다뤘습니다.</p><ul><li>5개월 동안 알아채지 못한 설계: 스킬을 정의하는 기준이 문제를 만들었는데, 기준을 다시 보기보다 그 빈자리를 메울 새 시스템을 설계했습니다.</li></ul><ul><li>하루 만에 멈춘 실험: 설계 문서를 그래프로 변환하는 실험에서 일치율을 더 높일 수는 있어 보였지만, 튜닝을 계속하는 것이 원래 문제를 푸는</li></ul></div>…]]></content>
+</entry>
+<entry>
+  <title><![CDATA[페인트 얼룩의 93%는 유효한 Perl 프로그램이다 (2019)]]></title>
+  <link rel='alternate' type='text/html' href='https://news.hada.io/topic?id=37029&amp;utm_source=geeknews&amp;utm_medium=rss&amp;utm_campaign=news' />
+  <id>https://news.hada.io/topic?id=37029</id>
+  <updated>2026-11-12T11:31:52+09:00</updated>
+  <published>2026-11-12T11:31:52+09:00</published>
+  <author>
+    <name>neo</name>
+    <uri>https://news.hada.io/user/neo</uri>
+  </author>
+  <content type='html' xml:lang='ko'><![CDATA[<div><ul><li>페인트 얼룩을 OCR로 인식한 결과 <strong>93%가 유효한 Perl 프로그램으로 파싱</strong>됐으며, 유효한 Perl 코드를 만들지 않고 벽에 페인트를 묻히는 것도 가능했음</li><li>연구의 주요 데이터셋은 <strong>페인트 얼룩 이미지 100개</strong>이며, 유효한 Perl 프로그램이 아닌 사례 7개도 확인함</li><li>공개 갤러리에서 <strong>얼룩 이미지와 대응하는 Perl 코드</strong>를 함께 볼 수 있으며, 파싱되지 않은 이미지는 빨간색으로 구분함</li><li>OCR 설정에 따라 여러 유효한 프로그램이 인식되면, 갤러리에는 <strong>개인적인 미적 기준으로 가장 흥미로운 코드</strong>를 골라 실었음</li><li>제출 마감 뒤 추가로 주목한 사례에</li></ul></div>…]]></content>
+</entry>
+<entry>
+  <title><![CDATA[Show HN: 투자할 YC 스타트업을 결정하는 게임으로 Papers, Please를 재현함]]></title>
+  <link rel='alternate' type='text/html' href='https://news.hada.io/topic?id=37027&amp;utm_source=geeknews&amp;utm_medium=rss&amp;utm_campaign=news' />
+  <id>https://news.hada.io/topic?id=37027</id>
+  <updated>2026-11-12T10:40:18+09:00</updated>
+  <published>2026-11-12T10:40:18+09:00</published>
+  <author>
+    <name>neo</name>
+    <uri>https://news.hada.io/user/neo</uri>
+  </author>
+  <content type='html' xml:lang='ko'><![CDATA[<div><ul><li><strong>Term Sheet, Please</strong>는 Papers, Please를 재현해 어느 YC 스타트업에 투자할지 결정하는 게임임</li><li>“<strong>CALL THE NEXT FOUNDER</strong>”로 다음 창업자를 호출함</li><li>투자 판단 선택지는 <strong>PASS / FUND / HOLD</strong>임</li><li>결정 서류를 책상 위에 놓으라는 안내와 함께, 서류에 적힌 사실을 클릭하는 <strong>INSPECT</strong> 기능이 표시됨</li><li>게임 화면의 시점은 <strong>데모데이 다음 날</strong>, ACT 01임</li></ul></div>]]></content>
+</entry></feed>

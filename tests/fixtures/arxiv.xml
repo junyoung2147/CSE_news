@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/7P2FxYkJs40l3IEQI3SDbDsIPJg</id>
+  <title>arXiv Query: search_query=&amp;id_list=2611.12806,2401.00001&amp;start=0&amp;max_results=10</title>
+  <updated>2026-11-12T04:09:34Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=2611.12806,2401.00001" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2401.00001v1</id>
+    <title>Sector Rotation by Factor Model and Fundamental Analysis</title>
+    <updated>2023-11-18T05:01:37Z</updated>
+    <link href="https://arxiv.org/abs/2401.00001v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2401.00001v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This study presents an analytical approach to sector rotation, leveraging both factor models and fundamental metrics. We initiate with a systematic classification of sectors, followed by an empirical investigation into their returns. Through factor analysis, the paper underscores the significance of momentum and short-term reversion in dictating sectoral shifts. A subsequent in-depth fundamental analysis evaluates metrics such as PE, PB, EV-to-EBITDA, Dividend Yield, among others. Our primary contribution lies in developing a predictive framework based on these fundamental indicators. The constructed models, post rigorous training, exhibit noteworthy predictive capabilities. The findings furnish a nuanced understanding of sector rotation strategies, with implications for asset management and portfolio construction in the financial domain.</summary>
+    <category term="q-fin.PM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-11-18T05:01:37Z</published>
+    <arxiv:primary_category term="q-fin.PM"/>
+    <author>
+      <name>Runjia Yang</name>
+    </author>
+    <author>
+      <name>Beining Shi</name>
+    </author>
+  </entry>
+<entry>
+    <id>http://arxiv.org/abs/2611.12806v1</id>
+    <title>Learning Heterogeneous Tactile Representation for General Dexterous Manipulation</title>
+    <updated>2026-11-09T18:12:00Z</updated>
+    <link href="https://arxiv.org/abs/2611.12806v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2611.12806v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Tactile sensing is an indispensable modality for contact-rich dexterous manipulation, a capability that hints at the ultimate frontiers of embodied intelligence. However, commercially available tactile sensors are still at a relatively early stage of development, with each type of sensor offering irreplaceable strengths alongside its own drawbacks. A key challenge is thus to free tactile understanding from sensor-specific physics, so that embodied models can effectively leverage heterogeneous tactile data. To this end, we develop LingBot-Touch, a tactile foundation model characterized by the following properties. (i) Our model yields a unified representation across different tactile sensors (i.e., piezoresistive, magnetic, and visuotactile sensors), and is easily extensible to new sensor types. (ii) The resulting tactile tokens are plug-and-play: they can be seamlessly integrated into policy models across paradigms, from diffusion policy to vision-language-action (VLA) models such as $π_{0.5}$ and LingBot-VLA, consistently enhancing manipulation dexterity. (iii) Extensive experiments, spanning simulation and real-robot deployments across multiple hardware platforms, demonstrate that our tactile representation substantially benefits complex manipulation tasks while maintaining strong computational efficiency. We believe the findings in this work demonstrate the potential of leveraging cross-sensor data to scale tactile learning, and offer encouraging insights for the design of future hardware and embodied models.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-11-09T18:12:00Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Bing Han</name>
+    </author>
+    <author>
+      <name>Yichuan Peng</name>
+    </author>
+    <author>
+      <name>Haoyu Dong</name>
+    </author>
+    <author>
+      <name>Yuanmeng Hu</name>
+    </author>
+    <author>
+      <name>Yongyi Jia</name>
+    </author>
+    <author>
+      <name>Fangjing Wang</name>
+    </author>
+    <author>
+      <name>Kecheng Zheng</name>
+    </author>
+    <author>
+      <name>Yiming Zhang</name>
+    </author>
+    <author>
+      <name>Yanhong Zeng</name>
+    </author>
+    <author>
+      <name>Xiaoqing Zhang</name>
+    </author>
+    <author>
+      <name>Chen Song</name>
+    </author>
+    <author>
+      <name>Rundong Zou</name>
+    </author>
+    <author>
+      <name>Anqi Dong</name>
+    </author>
+    <author>
+      <name>Yuan Guan</name>
+    </author>
+    <author>
+      <name>Ka Leong Cheng</name>
+    </author>
+    <author>
+      <name>Xing Zhu</name>
+    </author>
+    <author>
+      <name>Yujun Shen</name>
+    </author>
+    <author>
+      <name>Nan Xue</name>
+    </author>
+    <author>
+      <name>Wei Ning</name>
+    </author>
+  </entry>
+</feed>

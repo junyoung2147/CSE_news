@@ -1,0 +1,44 @@
+{
+ "hits": [
+  {
+   "created_at_i": 1773257369,
+   "num_comments": 1668,
+   "objectID": "47340079",
+   "points": 4229,
+   "title": "Don't post generated/AI-edited comments. HN is for conversation between humans",
+   "url": "https://news.ycombinator.com/newsguidelines.html#generated"
+  },
+  {
+   "created_at_i": 1777405492,
+   "num_comments": 1051,
+   "objectID": "47939579",
+   "points": 3521,
+   "title": "Ghostty is leaving GitHub",
+   "url": "https://mitchellh.com/writing/ghostty-leaving-github"
+  },
+  {
+   "created_at_i": 1765292438,
+   "num_comments": 965,
+   "objectID": "46205632",
+   "points": 3346,
+   "title": "Show HN: Gemini Pro 3 imagines the HN front page 10 years from now",
+   "url": "https://dosaygo-studio.github.io/hn-front-page-2035/news"
+  },
+  {
+   "created_at_i": 1793302899,
+   "num_comments": 769,
+   "objectID": "50294702",
+   "points": 3313,
+   "title": "Patrick Stewart has died",
+   "url": "https://www.nytimes.com/2026/10/29/arts/television/patrick-stewart-dead.html"
+  },
+  {
+   "created_at_i": 1781311890,
+   "num_comments": 2314,
+   "objectID": "48511072",
+   "points": 3158,
+   "title": "Statement on US government directive to suspend access to Fable 5 and Mythos 5",
+   "url": "https://www.anthropic.com/news/fable-mythos-access"
+  }
+ ]
+}
